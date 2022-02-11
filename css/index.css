@@ -1,0 +1,541 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cf::after {
+    content: '';
+    display: block;
+    clear: both
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+ul {
+    list-style: none
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+.blind{
+    position:absolute; /*기준을 가지고 위치를 잡을 때*/
+    width:1px;
+    height:1px; /*span은 인라인 요소이므로 position주면 높이가 달라질 수 있으므로 동일하게 하기 위해 width와 height 1px줌*/
+    overflow:hidden;
+    text-indent:-9999px; /*왼쪽으로 들여쓰기하는 걸로 모니터 밖으로 빼내는 법*/
+    font-size:0px;/*꽁꽁 숨기기*/
+    line-height:0px; /*꽁꽁숨기기*/
+}/*footer에 <span>트위터 유튜브들 글씨 숨기기 위해*/
+
+#header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    padding: 0 40px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .3);
+    background: #fff
+}
+
+/*position:fixed; width:100%; top:0; left:0;는 항상 짝꿍*/
+/*position:fixed쓰면 내용 없는 빈 박스는 사라짐 #header에 처음에 background:red가 사라짐 */
+/*position:fixed와 position:absolute를 사용하면 블록요소와 width:100%가 적용안됨*/
+/*크게봤을 때 형제관계인 #header와 #main이 겹칠경우 z-index 사용하면 안겹침, 안겹치면 굳이 z-index 안줘도 됨*/
+/*#header와 #main 중 원래는 먼저 코딩 한 애가 밑에 가는데 position 가진 애가 위로 올라옴*/
+/*background:#fff 하면 라임색이 위로 침범하는 현상을 막을 수 있음, 기본색은 transfer~라서 배경색 안주면  침범*/
+
+#header h1 {
+    float: left;
+    width: 50px;
+    margin-right: 40px;
+    margin-top: 20px
+}
+
+#header #nav {
+    float: right;
+    width: calc(100% - 90px);
+    position: relative
+}
+
+/*width:calc(100% - 90px) 부모넓이 100%에서 h1의 90px 뺀 나머지를 다 가질거임 반드시 - 앞뒤 띄우기*/
+
+#header #nav .depth1>li {
+    display: inline-block;
+}
+
+/*부모가 공간이 넓을 때는 display:inline-block 가능 굳이 cf줄 필요 없음*/
+
+#header #nav .depth1>li>a {
+    display: inline-block;
+    padding: 40px 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#header #nav .depth1>li+li>a {
+    padding-left: 24px
+}
+
+/*a들끼리는 사촌지간 이므로 a+a 불가능 */
+
+#header #nav .membership {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -17px
+}
+/*34px이므로 -17px 하면 중간으로 옴*/
+
+#header #nav .membership a {
+    font-size: 14px;
+    padding: 6px 16px 8px;
+ /*글씨 padding을 2px정도 차이 나야 중간으로 옴*/
+    border: 1px solid #000;
+    border-radius: 50px;
+    font-weight: bold;
+}
+/*border:1px solid #000; border-radius:50px; 둥근 border 생성*/
+
+#header #nav .membership a:first-child {
+    margin-right: 40px;
+    border: none;
+    padding: 7px 0px;
+}
+
+#header #nav .membership a:first-child:hover {
+    color: #00754a;
+}
+
+#header #nav .membership a:nth-child(2) {
+    margin-right: 16px;
+    transition: all 0.5s;
+}
+/*transition:all 0.5s; 호버했을 때 부드럽게 색 변화*/
+
+#header #nav .membership a:nth-child(2):hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+#header #nav .membership a:nth-child(3) {
+    background: #000;
+    color: #fff;
+    transition: all 0.5s;
+}
+
+#header #nav .membership a:nth-child(3):hover {
+    background: rgba(0, 0, 0, .7)
+}
+
+/*header 스타일 끝*/
+
+/*main 구역 스타일 시작*/
+#main {
+    overflow: hidden;
+    padding-top: 100px;
+}
+
+/* padding-top:100px 넣어야 안에 내용이라는 글자가 보임*/
+
+#main .startorder{
+    position:fixed;
+    bottom:50px;
+    right:50px;
+    z-index:999;/*얘가 가장 먼저 위에 떠잇어야 하니까*/
+
+}
+
+#main .startorder a{
+    display:block;
+    font-size:19px;
+    padding:18px 24px;
+    background: #00a862;
+    color:#fff;
+    font-weight:bold;
+    border-radius:50px; /*반원 모양일 경우 50px, 동그라미일 경우 50%*/
+    box-shadow: 0 0 6px rgb(0,0,0,0.24), 0 8px 12px rgb(0,0,0,0.14);
+}
+
+#main .welcome-msg {
+    position: fixed;
+    width: 40%;
+    left: 0;
+    height: 100%;
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .24), 0 4px 4px rgba(0, 0, 0, .12);
+}
+
+/*블러값 1px 1px 그림자 색깔 .24*/
+/*height:100%고정되어 있으므로 화면과 같은 높이 설정하기*/
+
+#main .welcome-msg .text {
+    padding: 0 131px;
+    font-size: 28px;
+    font-weight: bold;
+    /*font-weight:bold; 장갑 색 흑백으로 변함*/
+    /*margin: auto 0;*/
+    padding-top: 40vh;
+        /*%항상 부모기준, margin:auto 0; padding-top:50%은 중간으로 오게 하는 속성*/
+}       /*40vh = 현재높이 기준 40퍼센트 높이*/
+        /*vw = 윈도우 높이 기준*/
+
+#main #container {
+    width: 60%;
+    margin-left: 40%;
+    padding: 20px 0
+}
+
+/*한줄에 여러 박스를 배치할 경우 다른 박스에 position-fixed를 사용할 경우 width:60%; margin-left:40%; 사용하기 */
+/*중간에 자식들 중 부모 여백을 사용하는 애들이 있을 수 있으므로 우좌여백은 0으로 해야 함*/
+
+#container .rewards {
+    padding: 0 40px;
+}
+
+#container .rewards h2 {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+#container .rewards ul {
+    overflow: hidden
+}
+
+#container .rewards li {
+    float: left;
+    width: 32.3333%;
+}
+
+/*같은 크기 사진으로 부모 넓이 같이 써야 하므로 너비:33.33%,
+근데 사진이 띄어져 있어야 하므로 여백을 1.5%라 치면 두개니까 3%로 100%-3% = 97%를 3으로 나눔
+float 정렬하므로 부모에 overflow 필요*/
+
+#container .rewards li:nth-child(2) {
+    margin: 0 1.5%
+}
+
+/*3개의 사진 사이에 빈틈 2개 생김*/
+
+#container .rewards li img {
+    border-radius: 15px;
+}
+
+/*사진 3개 모서리 둥글게*/
+
+#container .rewards li p {
+    font-size: 19px;
+    padding-top: 24px;
+    /*letter-spacing:-1px; text-align:justify;*/
+}
+
+#container .btn {
+    padding: 24px 0
+}
+
+#container .btn a {
+    font-size: 14px;
+    padding: 6px 16px 8px;
+/*글씨 padding을 2px정도 차이 나야 중간으로 옴*/
+    border: 1px solid #000;
+    border-radius: 50px;
+    font-weight: bold;
+    display:inline-block;
+}
+
+#container .btn a:nth-child(1) {
+    background: #000;
+    color: #fff
+}
+
+#container .order {
+    background:#f9f9f9;
+    padding:40px 0 80px;
+}
+
+#container .order > div {
+    border-radius:30px;
+    background:#fff;
+    width:500px;
+    margin:0 auto 20px;
+    /*20px 주면서 흰색 박스랑 연두색 박스 공간 생김*/
+    overflow:hidden;
+    /* order3 사진 2개 넘치는 모서리 부분을 빼고 둥글게 만들어 주세요*/
+    box-shadow: 0 0 0.5px 0 rgba(0,0,0,0.14), 0 1px 1px 0 rgba(0,0,0,0.24);
+
+}
+
+#container .order .order1 {
+    padding:20px ;
+}
+
+#container .order .order1 > div:first-child{
+    position:relative;
+    padding-bottom:16px;
+}
+
+#container .order .order1 .answer{
+    width:80%; 
+    font-size:28px;
+    font-weight:bold;
+    line-height: 1.5em;
+}
+
+#container .order .order1 .beta {
+    position:absolute; 
+    top:20px;
+    right:0;
+    font-size: 13px;
+    color: #dd92c0;
+    letter-spacing:0.5em;
+    font-weight:bold
+}
+/*1em은 글자 크기과 같은 자간으로 설정*/
+
+#container .order .order1 > div:nth-child(2){
+    font-size:16px; 
+    padding:16px 0;
+    border-top:1px solid #999;
+}
+/* > 안주면 beta와 같이 코딩되기 때문에  What type~만 하고싶으면 > 하기*/
+
+#container .order .order1 > div:nth-child(3) a:first-child{
+    margin-bottom:20px;
+    background:#d4e9e2 url(../images/iced_drink.webp) no-repeat 
+    95% 40px;
+    background-size:70px auto;
+}
+#container .order .order1 > div:nth-child(3) a:last-child{
+    background:#d4e9e2 url(../images/hot_drink.webp) no-repeat 
+    103% -50px;
+}
+
+
+
+#container .order .order1 > div:nth-child(3) a{
+    display:block;
+    /*background-color:#d4e9e2;*/
+    border-radius:20px;
+    position:relative;
+    padding:30px 16px;
+    font-size: 19px;
+    line-height:1.5em;
+    overflow:hidden; /*아래 흰색 컵 이미지가 연두색 박스를 삐져나오는 것을 해결*/
+    margin-bottom:20px;
+}
+
+#container .order .order1 > div:nth-child(3) a strong{
+    display:block;
+}
+/*span, strong이 inline 요소이므로 block요소로 변경
+전체가 링크로 묶여야 하므로 부모랑 사이즈가 같아야 함
+block 처리 하면 부모랑 사이즈 같게 할 수 있음*/
+
+/*#container .order .order1 > div:nth-child(3) a img{
+    position:absolute;
+    bottom:-10px;
+    right:0;
+    
+}
+#container .order .order1 > div:nth-child(3) a:first-child img{
+    width:63px;/*이미지크기 작게
+    right:20px;
+}*/
+/*#container .order .order1 > div:nth-child(3) a:last-child img{
+    width:85px;
+    right:-5px;
+}*/
+#container .order .buy >div {
+   padding: 24px;
+}/*글씨가 넘쳐서 잘리는 것을 해결*/
+#container .order .buy >div h3{
+    font-size:19px;
+}
+#container .order .buy >div p{
+    font-size:16px;
+    padding:16px 0;
+}/*p의 글자들의 상하의 간격*/
+
+#container .order .buy >div a {
+    display:inline-block;
+    font-size:16px;
+    color:#00754a;
+    border:1px solid #00754a;
+    border-radius: 50px;
+    padding:6px 16px 8px;
+    transition: all 0.5s;
+    
+}/*버튼 모양은 inline-block해야지 padding을 마음대로 줄 수 있음*/
+
+#container .order .buy > div a:hover {
+    background:rgba(235,244,241);
+   
+} /*background 알아내는 법 F12키로 개발자 창 키고 ctrl shif c 누르기*/
+ /*opacity 하면 background랑 글자 모두 색 변함*/
+
+/*company-info 구역*/
+
+#container .company-info .depth2{
+    display:block;
+}
+
+#container .company-info{
+    padding:48px 40px 32px;
+    background:#fff
+}
+#container .company-info .depth1{
+    border-bottom:1px solid #ddd;
+    padding-bottom:10px;
+}
+#container .company-info .depth1 > li {
+    margin-bottom:20px;
+    
+}
+
+#container .company-info .depth1 > li > a{
+    display:block; 
+    font-size:19px;
+    padding:20px 0;
+    position:relative;
+    /*border:1px solid #000;*/
+}/*화살표 아이콘  만들기*/
+#container .company-info .depth1 > li > a::after{
+    content:'\f078'; /*content: '\f077'*/
+    font-family: 'Font Awesome 5 Free';
+    font-weight:900;
+    position: absolute;
+    top:50%; 
+    right:15.5px;
+    margin-top:-9.5px;
+    transition:all 0.5s;
+}
+#container .company-info .depth1 > li.on > a::after{
+    content:'\f077';
+    /*클릭하면 화살표 아래있던게 위로가게*/
+}
+#container .company-info .depth1 > li > a:hover::after{
+    transform:rotate(-180deg) /*화살표 아이콘 호버하면 위로돌아감*/
+    /*content:'\f077'이렇게 아예 화살표아이콘을 아래가 아닌 위 화살표로 바꾸면 transition몇초 후 부드럽게 바꾸는게 안됨*/
+}
+
+#container .company-info .depth1 > li > a::before{
+    content:'';/*before , after에는 content 필수*/
+    position: absolute;
+    top:50%; 
+    right:0;
+    margin-top:-25px; /*백그라운드 뒤에 오게하기 위해 50/2*/
+    width:50px;
+    height:50px;
+    border-radius:50%; /*50%하면 네모에서 동그라미로 변신*/
+    transition:all 0.5s;
+}/*아이콘에 동그라미 백그라운드 만들기*/
+
+#container .company-info .depth1 > li > a:hover::before{
+    background: #ddd;
+}
+
+#container .company-info .depth2 > li{
+    margin-bottom:8px;
+}
+
+#container .company-info .depth2{
+    display:none; /*자바스크립트로 풀 예정*/
+}
+/* #container .company-info .depth1 > li.on .depth2{
+    display:block; /*자바스크립트로 풀 예정
+} */
+#container .company-info .depth2 > li > a{
+    padding:8px 0; 
+    font-size:16px;
+    display:inline-block; /*글자에만 링크 거는 법*/
+    color:rgba(0,0,0,0.58)
+}
+/* footer 구역 */
+
+#contatiner .footer{
+    padding:0px 40px 100px; 
+} /*main 안에 있을 땐 class로 주기, 바깥에 따로 있을 땐 id*/
+#container .footer .sns a {
+    display:inline-block;
+    width:32px;
+    height:32px; 
+    position:relative; /*#container .footer .sns a::after에 absolute있으니 꼭 필요*/
+    line-height:30px;/*위로 치우치는 문제 해결하고 중간으로 두기 위해*/
+    border-radius:50%; /*네모 아이콘도 동그랗게 모두 동그랗게*/
+    background: #000;
+    color:#fff;
+    font-size: 18px;
+    text-align:center;
+    vertical-align: middle;/*스포티파이랑 높이가 안맞아서 얘로 모든 아이콘 높이 맞추기*/
+    margin-bottom:20px; /*밑에 privacy이 글씨들이랑 떨어지게*/
+    margin-top:10px;
+}
+
+#container .footer .sns a::after{
+    content:'';
+    position:absolute;
+    /*width:48px;
+    height:48px;*/
+    border-radius:50%;
+    background:#ddd;
+    top:50%;
+    left:50%;
+    right:50%;
+    bottom:50%;
+    /*margin-top:-24px;
+    margin-left:-24px;*/
+    z-index:-1;
+    transition: all 0.3s;
+}
+
+#container .footer .sns a:hover::after{
+    top:-8px;
+    left:-8px;
+    right:-8px;
+    bottom:-8px; /*원이 부드럽게 확장되게*/
+}
+
+#container .footer .sns a:first-child {
+    width:32px;
+    height:32px; 
+    font-size: 33px;
+    text-align:center;
+    background: #fff;
+    color:#000;
+    margin-left:35px;/*왼쪽에 붙어있는 스포티파이 오른쪽으로 밀기*/
+    
+}/*스포티파이 아이콘은 뒷배경 원래 있어서 검정동그라미 필요 없음*/
+#container .footer .sns a+a{
+    margin-left:15px;
+}
+#container .footer .bmenu li a{
+    font-size:16px;
+    padding:8px 0;
+    display:inline-block;
+    margin-bottom:4px;
+    margin-left:35px;
+}
+#container .footer .copyright {
+    padding:16px 0; 
+    font-size:14px;
+    margin-left:35px;
+}
+
+/*슬라이드구역*/
+.slideOuter {width:100%; }/*너비는 항상 Outer에*/
+.slideOuter .slide{
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position: center;
+    height:441px;
+}
+.slideOuter .slide{
+    background-image:url(../images/)
+}

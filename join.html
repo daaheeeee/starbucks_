@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starbucks Coffee Company</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/join.css">   
+    <script src="./js/jquery-1.12.4.min.js"></script>
+
+</head>
+<body>
+    
+    <div id="header" class="cf">
+        <h1><a href="#"><img src="./images/logo.png" alt="스타벅스"></a></h1>   
+    </div>
+
+    <div class="content row">
+        <h2>Create an account</h2>
+        <p><strong>STARBUCKS® REWARDS</strong></p>
+        <p>Join Starbucks Rewards to earn Stars for free food and drinks, any way you pay.<br>
+            Get access to mobile ordering, a birthday Reward, and moremore.
+        </p>
+
+        <form action="#" method="post" name="joinform" id="joinform">
+            <fieldset>
+              <div class="infobox">
+                   <ul>
+                       <li><strong>Personal Information</strong></li>
+                       <li><input type="text" id="first" name="first" placeholder="First name"></li>
+                       <li><input type="text" id="last" name="last" placeholder="Last name"></li>
+                   </ul>
+              </div>
+              <div class="id">
+                <ul>
+                    <li><strong>ID</strong></li>
+                    <li><input type="text" id="idbox" name="idbox" placeholder="ID"></li> 
+                </ul>
+              </div>
+              <div class="password">
+                  <ul>
+                      <li><strong>Password</strong></li>
+                      <li><input type="password" name="pwbox" id="pwbox" placeholder="Password"></li>
+                      <li><input type="password" name="pwok" id="pwok" placeholder="Confirm password number" ></li> 
+                  </ul>
+              </div>
+              <div class="email">
+                  <ul>
+                    <li><strong>Email Adress</strong></li>
+                    <li>
+                        <ul>
+                            <input type="text" name="ebox" id="ebox" placeholder="Email adress">@
+                            <input type="text" name="emaildomain" id="emaildomain" placeholder="domain" disabled>
+                            <select id="domainlist">
+                                <option value="noselect">-Email Select-</option>
+                                <option value="naver.com">Naver</option>
+                                <option value="daum.net">Daum</option>
+                                <option value="self">Direct input</option>
+                            </select>
+                        </ul>
+                    </li>
+                  </ul>
+              </div>
+                <div class="memo">
+                    <ul>
+                        <li class="already"><a href="#"><strong>Already have a Starbucks gift card?</strong></a></li>
+                        <li class="collect"><strong>COLLECT MORE STARS & EARN REWARDS</strong></li>
+                        <li>Email is a great way to know about offers and <br>
+                            what’s new from Starbucks.
+                        </li>
+                        <li class="yes">
+                            <input type="checkbox" name="yes" id="yes" ><label for="yes"></label>Yes, I’d like email from Starbucks<br><br>
+                            <li class="p">Know about initiatives, announcements and product offers.</li>
+                        </li>
+                        <li class="collect"><strong>TERMS OF USE</strong></li>
+                        <li class="agree">
+                            <input type="checkbox" name="agree" id="agree">
+                            <label for="agree"> </label>
+                            I agree to the 
+                            <a href="#">Starbucks® Rewards Terms</a><br>
+                            and the<a href="#">Starbucks Card Terms</a>    
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn">
+                    <button type="reset"> Cancle</button> 
+                    <button type="submit">Transmission</button>
+                </div>
+
+            </fieldset>
+        </form>
+
+    </div>
+    
+
+    <div class="footer">
+        <div class="right">
+            <button>Find a store</button>
+            <div class="copyright"> &copy; 2022 Starbucks </div>
+        </div>
+        <ul>
+            <li><a href="#">Web Accessibility</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use </a></li>
+            <li><a href="#">Cookie Preferences</a></li>
+        </ul>
+        
+    </div>
+
+
+
+    <script src="./js/index.js"></script>
+    <script src="./js/join.js"></script>
+</body>
+</html>

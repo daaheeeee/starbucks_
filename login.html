@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starbucks Coffee Company</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="./js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+    
+    <div id="header" class="cf">
+        <h1><a href="#"><img src="./images/logo.png" alt="스타벅스"></a></h1>   
+    </div>
+
+    <div class="container row">
+        <h2>Sign in or create an account</h2>
+       
+        <form action="#" method="post" name="loginform" id="loginform">
+            <fieldset>
+                <!-- <legend class="logintit">로그인</legend> -->
+                <div class="loginbox">
+                    <p><input type="text" id="id" name="id" placeholder="Username or email address"></p>
+                    <p><input type="password" id="password" name="password" placeholder="Password"></p>
+                </div>
+                
+                <div class="keep">
+                    <input type="checkbox" id="keep" name="keep"><label for="keep"></label>Keep me signed in. <strong>Details</strong>
+                   
+                </div>
+                <div class="idpwfind">
+                    <ul>
+                        <li><a href="#"><strong>Forgot your username?</strong></a></li>
+                        <li><a href="#"><strong>Forgot your password?</strong></a></li>
+                    </ul>                
+                </div>
+                <button type="submit">Sign in</button>
+            </fieldset>
+        </form>
+    
+    </div>
+
+    <div class="join row">
+        <h2>JOIN STARBUCKS® REWARDS</h2>
+        <p>Join Starbucks® Rewards to earn free food and drinks,<br>
+            get free refills, pay and order with your phone,
+            and more.
+        </p>
+       <a href="./join.html"> <button><strong>Join now</strong></button></a>
+
+    </div>
+
+    <div class="footer">
+        <div class="right">
+            <button>Find a store</button>
+            <div class="copyright"> &copy; 2022 Starbucks </div>
+        </div>
+        <ul>
+            <li><a href="#">Web Accessibility</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use </a></li>
+            <li><a href="#">Cookie Preferences</a></li>
+        </ul>
+        
+    </div>
+
+
+
+    <script src="./js/index.js"></script>
+    <script src="./js/login.js"></script>
+</body>
+</html>
